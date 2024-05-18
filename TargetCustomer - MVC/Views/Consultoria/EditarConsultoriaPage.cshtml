@@ -1,0 +1,19 @@
+﻿@model TargetCustomer___MVC.DTOs.ConsultoriaDTO
+@{
+    ViewData["Title"] = "Editar Consultoria";
+}
+
+<h2>Editar Consultoria</h2>
+
+<form asp-action="AtualizarConsultoria" method="post">
+    <input type="hidden" name="Id" value="Model.Id" />
+    <div class="form-group">
+        <label for="DescricaoConsultoria">Descrição da Consultoria:</label>
+        <input type="text" class="form-control" id="DescricaoConsultoria" name="DescricaoConsultoria" value="Model.DescricaoConsultoria" required />
+    </div>
+    <div class="form-group">
+        <label for="Representante">Representante:</label>
+        <input type="text" class="form-control" id="Representante" name="Representante" value="Model.Representante" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+</form>

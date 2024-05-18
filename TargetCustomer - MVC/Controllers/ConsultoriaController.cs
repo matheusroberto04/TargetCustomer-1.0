@@ -36,6 +36,8 @@ namespace TargetCustomer___MVC.Controllers
             return RedirectToAction("ConsultoriaPage");
         }
 
+
+
         // Atualizar Consultoria
         public IActionResult AtualizarConsultoria(int id, ConsultoriaDTO request)
         {

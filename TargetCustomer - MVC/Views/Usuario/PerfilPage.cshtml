@@ -1,0 +1,24 @@
+﻿@model TargetCustomer___MVC.Models.Usuario
+
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<h2>Perfil</h2>
+
+<div>
+    <h3>Informações do Usuário</h3>
+    <p><strong>CNPJ:</strong> Model.CNPJ</p>
+    <p><strong>Razão Social:</strong> Model.Razao</p>
+    <p><strong>Telefone:</strong> Model.Telefone</p>
+    <p><strong>Ramo de Atuação:</strong> Model.RamoDeAtuacao</p>
+    <p><strong>Email:</strong> Model.Email</p>
+    <p><strong>Logradouro:</strong> Model.Logradouro</p>
+    <p><strong>Número do Logradouro:</strong> Model.NumeroLogradouro</p>
+    <a class="btn-link" asp-area="" asp-controller="Usuario" asp-action="EditarPerfil">EditarPerfil</a>
+</div>
+
+<div>
+    <a asp-action="EditarPerfil" asp-route-id="Model.Id" class="btn btn-warning">Editar Perfil</a>
+    <a asp-action="DeletarPerfil" asp-route-id="Model.Id" class="btn btn-danger">Deletar Perfil</a>
+</div>

@@ -13,9 +13,9 @@ namespace TargetCustomer___MVC.Controllers
             _dataContext = dataContext;
         }
 
-        public IActionResult LoginPage() 
-        { 
-           return View();
+        public IActionResult LoginPage()
+        {
+            return View();
         }
 
         public IActionResult EfetuarLogin(LoginDTO request)
@@ -25,7 +25,7 @@ namespace TargetCustomer___MVC.Controllers
             {
                 return NotFound();
             }
-            if(!BCrypt.Net.BCrypt.Verify(request.SenhaHash, getUser.HashSenha))
+            if (!BCrypt.Net.BCrypt.Verify(request.SenhaHash, getUser.HashSenha))
             {
                 return NotFound();
             }
@@ -36,12 +36,12 @@ namespace TargetCustomer___MVC.Controllers
             return RedirectToAction("Home", "Index");
         }
 
-        public IActionResult CadastroPage() 
+        public IActionResult CadastroPage()
         {
             return View();
         }
 
-        public IActionResult EfetuarCadastro(CadastroDTO request) 
+        public IActionResult EfetuarCadastro(CadastroDTO request)
         {
             var findUser = _dataContext.Usuarios.FirstOrDefault(x => x.Email == request.Email);
             if (findUser != null)
@@ -69,16 +69,20 @@ namespace TargetCustomer___MVC.Controllers
         public IActionResult PerfilPage(int id)
         {
             var getUser = _dataContext.Usuarios.Find(id);
+          
 
             ViewBag.Usuario = getUser;
-            
+
             return View();
         }
 
-        public IActionResult EditarPerfil(int id, string newPassword, CadastroDTO request) 
+        public IActionResult EditarPerfil(int id, string newPassword, CadastroDTO request)
         {
             var getUser = _dataContext.Usuarios.Find(id);
-            if (BCrypt.Net.BCrypt.Verify(request.SenhaHash, getUser.HashSenha)) 
+
+            
+
+            if (BCrypt.Net.BCrypt.Verify(request.SenhaHash, getUser!.HashSenha))
             {
                 getUser.CNPJ = request.CNPJ;
                 getUser.Razao = request.RazaoSocial;
@@ -99,7 +103,9 @@ namespace TargetCustomer___MVC.Controllers
         public IActionResult DeletarPerfil(int id)
         {
             var getUser = _dataContext.Usuarios.Find(id);
-            getUser.IsActive = false;
+           
+
+            getUser!.IsActive = false;
 
             _dataContext.Update(getUser);
             _dataContext.SaveChanges();

@@ -1,0 +1,44 @@
+﻿@model TargetCustomer___MVC.DTOs.CadastroDTO
+
+@{
+    ViewData["Title"] = "Editar Perfil";
+}
+
+<h2>Editar Perfil</h2>
+
+<form asp-action="EditarPerfil" method="post">
+ 
+    <div class="form-group">
+        <label for="CNPJ">CNPJ:</label>
+        <input type="text" class="form-control" id="CNPJ" name="CNPJ" value="ViewBag.Usuario.CNPJ" required />
+    </div>
+    <div class="form-group">
+        <label for="RazaoSocial">Razão Social:</label>
+        <input type="text" class="form-control" id="RazaoSocial" name="RazaoSocial" value="ViewBag.Usuario.Razao" required />
+    </div>
+    <div class="form-group">
+        <label for="Telefone">Telefone:</label>
+        <input type="text" class="form-control" id="Telefone" name="Telefone" value="ViewBag.Usuario.Telefone" required />
+    </div>
+    <div class="form-group">
+        <label for="RamodeAtuacao">Ramo de Atuação:</label>
+        <input type="text" class="form-control" id="RamodeAtuacao" name="RamodeAtuacao" value="ViewBag.Usuario.RamoDeAtuacao" required />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email:</label>
+        <input type="email" class="form-control" id="Email" name="Email" value="ViewBag.Usuario.Email" required />
+    </div>
+    <div class="form-group">
+        <label for="Logradouro">Logradouro:</label>
+        <input type="text" class="form-control" id="Logradouro" name="Logradouro" value="ViewBag.Usuario.Logradouro" required />
+    </div>
+    <div class="form-group">
+        <label for="NumeroLogradouro">Número do Logradouro:</label>
+        <input type="text" class="form-control" id="NumeroLogradouro" name="NumeroLogradouro" value="ViewBag.Usuario.NumeroLogradouro" required />
+    </div>
+    <div class="form-group">
+        <label for="newPassword">Nova Senha:</label>
+        <input type="password" class="form-control" id="newPassword" name="newPassword" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
